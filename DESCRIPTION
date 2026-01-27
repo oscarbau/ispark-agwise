@@ -1,0 +1,21 @@
+Package: isparkagwise
+Type: Package
+Title: Agwise Modelling Framework Implemented for iSPARK Project
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Eduardo", "Garcia Bendito",
+      email = "e.bendito@cgiar.org",
+      role = c("aut", "cre")
+    )
+  )
+Description: The package provides a reproducible end-to-end pipeline to generate 
+    fertilizer recommendations. The pipeline can be implemented for any country in 
+    Africa as it relies on Africa-only data sources (iSDA Soil). The example 
+    implementation relies on observational data from carob (carob-data.org) but 
+    other data sources can be added as inputs.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
+Roxygen: list(markdown = TRUE)
