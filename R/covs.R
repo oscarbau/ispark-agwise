@@ -118,7 +118,7 @@ covs <- function(data.path = NULL, data.input = NULL, out.filename = NULL,
 
   covs <- reduce(
     data_list,
-    ~ left_join(.x, select(.y, -longitude, -latitude), by = "id"),
+    ~ left_join(.x, select(.y, -location), by = c("longitude", "latitude")),
     .init = locs
   )
 
