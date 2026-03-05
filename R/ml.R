@@ -80,9 +80,12 @@ data.ml <- function(data.path = NULL){
 #' hyperparameter tuning via grid search. Splits data into training and test sets,
 #' performs hyperparameter optimization, and saves the best model.
 #'
-#' @param data.input \code{data.frame} or \code{tibble}. Required. The ML dataset 
-#'   (typically from \code{\link{data.ml}}). Must contain the response variable 
+#' @param data.input \code{data.frame} or \code{tibble}. Required. The ML dataset
+#'   (typically from \code{\link{data.ml}}). Must contain the response variable
 #'   and all predictor variables.
+#'
+#' @param data.path \code{character} or \code{NULL}. Optional. Target directory where
+#'   model outputs will be written. If \code{NULL}, writes to \code{tempdir()}.
 #'
 #' @param response \code{character} or \code{NULL}. Optional. Name of the response 
 #'   variable. Defaults to \code{"predicted_yield_blup"} if not specified.
@@ -143,7 +146,7 @@ data.ml <- function(data.path = NULL){
 #'
 #' @seealso \code{\link{data.ml}} for preparing input data
 #'
-ml.execute <- function(data.input = NULL, response = NULL, predictors = NULL){
+ml.execute <- function(data.input = NULL, data.path = NULL, response = NULL, predictors = NULL){
 
   require(h2o)
 
