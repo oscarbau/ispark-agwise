@@ -11,6 +11,7 @@
 #' @param data.input \code{data.frame} or \code{tibble}. Required. Must contain at least 
 #'   the following columns:
 #'   \describe{
+#'     \item{\code{id}}{unique row identifier}
 #'     \item{\code{longitude}}{numeric; geographic longitude (WGS84 or CRS matching the downloaded \pkg{geodata} GADM layer)}
 #'     \item{\code{latitude}}{numeric; geographic latitude}
 #'   }
@@ -90,7 +91,7 @@ covs <- function(data.path = NULL, data.input = NULL, out.filename = NULL,
   require(purrr)
 
   # Check inputs
-  .check_schema(data.input, vars = c("longitude", "latitude"))
+  .check_schema(data.input, vars = c("id", "longitude", "latitude"))
 
   # Set path
   covs.path <- .setpath(level = "int", data.path = data.path)
@@ -117,7 +118,7 @@ covs <- function(data.path = NULL, data.input = NULL, out.filename = NULL,
 
   covs <- reduce(
     data_list,
-    ~ left_join(.x, select(.y, -longitude, -latitude), by = "id"),
+    ~ left_join(.x, select(.y, -location), by = c("longitude", "latitude")),
     .init = locs
   )
 

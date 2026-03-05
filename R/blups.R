@@ -234,9 +234,10 @@ blups <- function(data.path = NULL, data.input = NULL, distance = NULL, iso = NU
            field_blup = field_blup * 1000)
   data$location <- paste(data[["longitude"]], data[["latitude"]], sep = "_")
 
-  # return(data)
   dir.create(file.path(blups.path, "not"), showWarnings = FALSE, recursive = TRUE)
   write.csv(data, file.path(blups.path, "not", paste0("blups.csv")), row.names = FALSE)
+
+  return(data)
 
 }
 
