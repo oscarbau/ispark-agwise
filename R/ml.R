@@ -111,8 +111,8 @@ data.ml <- function(data.path = NULL){
 #' - Random seed: 444 (for reproducibility)
 #'
 #' \strong{Output files:}
-#' Grid search results are saved to \code{<data.path>/int/ml/models/gridGB.RDS}
-#' The best model is saved to \code{<data.path>/int/ml/models/} as an H2O model object.
+#' Grid search results are saved to \code{<data.path>/out/ml/models/gridGB.RDS}
+#' The best model is saved to \code{<data.path>/out/ml/models/} as an H2O model object.
 #'
 #' @section Side effects:
 #' - Initializes H2O cluster and shuts it down at the end
@@ -155,7 +155,7 @@ ml.execute <- function(data.input = NULL, data.path = NULL, response = NULL, pre
   }
 
   # Set path
-  ml.path <- .setpath(level = "int", data.path = data.path)
+  ml.path <- .setpath(level = "out", data.path = data.path)
   dir.create(file.path(ml.path, "ml", "models"), showWarnings = FALSE, recursive = TRUE)
 
   h2o::h2o.init()
