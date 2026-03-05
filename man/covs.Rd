@@ -20,6 +20,7 @@ will be written to. If left empty, will write to \code{tempdir()}.}
 \item{data.input}{\code{data.frame} or \code{tibble}. Required. Must contain at least
 the following columns:
 \describe{
+\item{\code{id}}{unique row identifier}
 \item{\code{longitude}}{numeric; geographic longitude (WGS84 or CRS matching the downloaded \pkg{geodata} GADM layer)}
 \item{\code{latitude}}{numeric; geographic latitude}
 }}
